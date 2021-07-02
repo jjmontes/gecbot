@@ -1,0 +1,32 @@
+{
+  "name": "gecbot",
+  "version": "0.0.1",
+  "description": "Bot de discord pensado para gamificar la actividad en el server Godot En Español",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjmontes/gecbot.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Godot En Español",
+    "Godot",
+    "gamificación"
+  ],
+  "author": "Juan José Montes de Oca Arbós",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jjmontes/gecbot/issues"
+  },
+  "homepage": "https://github.com/jjmontes/gecbot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.29.0"
+  }
+}
