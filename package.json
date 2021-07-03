@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/jjmontes/gecbot#readme",
   "dependencies": {
-    "discord.js": "^12.5.3"
+    "discord.js": "^12.5.3",
+    "locallydb": "0.0.9"
   },
   "devDependencies": {
     "eslint": "^7.29.0"
