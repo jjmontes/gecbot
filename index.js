@@ -21,12 +21,12 @@ for (const file of commandFiles) {
 for (const file of eventFiles) {
 	const event = require(`./events/${file}`);
 	switch (event.type)	{
-		case "once":
-			client.once(event.name, (...args) => event.execute(...args, client));
-			break;
-		default:
-			client.on(event.name, (...args) => event.execute(...args, client));
-			break;
+	case 'once':
+		client.once(event.name, (...args) => event.execute(...args, client));
+		break;
+	default:
+		client.on(event.name, (...args) => event.execute(...args, client));
+		break;
 	}
 }
 
@@ -39,7 +39,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 		return;
 	}
-	
+
 	// When a reaction is received, check if the structure is partial
 	if (reaction.partial) {
 		// If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
@@ -54,23 +54,24 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 	// Now the message has been cached and is fully available
 	// The reaction is now also fully available and the properties will be reflected accurately:
-	if (reaction.emoji.identifier === config.reactionIdentifier) 
+	if (reaction.emoji.identifier === config.reactionIdentifier) {
 		registerReaction(reaction.message, user);
+	}
 });
 
 client.login(token);
 
 function registerReaction(message, user) {
-	var guildsfound = servers.where({id: message.guild.id});
+	let guildsfound = servers.where({ id: message.guild.id });
 	if (guildsfound.items.length == 0)	{
 		servers.insert({ id: message.guild.id, rewards: [] });
-		guildsfound = servers.where({id: message.guild.id});
+		guildsfound = servers.where({ id: message.guild.id });
 	}
-	let guild = guildsfound.items[0];
-	const reward = {from: user.id, to: message.author.id, when: new Date() };
+	const guild = guildsfound.items[0];
+	const reward = { from: user.id, to: message.author.id, when: new Date() };
 	if (guild.rewards == null) guild.rewards = [];
 	guild.rewards.push(reward);
 	servers.update(guild.cid, guild);
 
-	servers.save();	
+	servers.save();
 }
