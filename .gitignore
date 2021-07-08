@@ -108,6 +108,3 @@ dist
 
 # Database files
 database
-
-# Configuration file
-config.json
